@@ -1,8 +1,7 @@
 import streamlit as st
 from PIL import Image
-import os
 
-# Page Configuration
+# --- Page Configuration ---
 st.set_page_config(page_title="Kowiyu Abidemi Bamidele", layout="wide")
 
 # --- Custom Background and Styling ---
@@ -14,16 +13,13 @@ st.markdown(
         background-size: cover;
         background-attachment: fixed;
     }
-
     a {
         color: white !important;
         text-decoration: none;
     }
-
     a:hover {
         color: #FFD700 !important;
     }
-
     h1, h2, h3, p {
         color: #f0f0f0;
     }
@@ -34,7 +30,7 @@ st.markdown(
 
 # --- Load and Display Image ---
 try:
-    image = Image.open("lab_photo.jpg.jpeg")  # Ensure this file exists in the root
+    image = Image.open("lab_photo.jpg.jpeg")  # Ensure the file exists
     st.image(image, caption="Kowiyu Abidemi Bamidele in the lab", use_column_width=True)
 except FileNotFoundError:
     st.warning("Profile image not found. Please make sure 'lab_photo.jpg.jpeg' is in the working directory.")
@@ -46,7 +42,7 @@ st.title("Digital Transformation Portfolio")
 st.markdown("## 🧭 Table of Contents")
 st.markdown("""
 - [👨‍🔬 About Me](#about-me)
-- [📄 Download CV](#download-my-cv)
+- [📄 Download CV](#download-cv)
 - [📊 Project](#project-drought-pattern-analysis-in-the-alazani-river-basin)
 - [🧠 Skills & Tools](#skills--tools)
 - [🎯 Goals](#goals-for-joining-the-digital-transformation-programme)
@@ -65,19 +61,10 @@ st.write("""
 Adaptable, ambitious, and qualified individual seeking to pursue a prolonged and rewarding career within Water Resource Engineering. Maintains a meticulous and attentive approach to perform innovative research and evaluation.
 """)
 
-# --- Download CV ---
-cv_path = "CV_KOWIYU ABIDEMI BAMIDELE.pdf"  # Make sure it's in the app root
-
-if os.path.exists(cv_path):
-    with open(cv_path, "rb") as file:
-        st.download_button(
-            label="📄 Download My CV",
-            data=file,
-            file_name="Kowiyu_Abidemi_CV.pdf",
-            mime="application/pdf"
-        )
-else:
-    st.error("CV file not found. Please ensure the file is in the same folder as this script.")
+# --- Download CV from Google Drive ---
+st.header("📄 Download CV")
+cv_drive_url = "https://drive.google.com/uc?export=download&id=1CA53jHdlf8XyUCDcV53HGQx38x5G00oH"
+st.markdown(f"[📥 Click here to download my CV]({cv_drive_url})", unsafe_allow_html=True)
 
 # --- Project Section ---
 st.header("📊 Project: Drought Pattern Analysis in the Alazani River Basin")
@@ -104,7 +91,6 @@ To integrate digital transformation into environmental and water resource challe
 
 # --- Education ---
 st.header("📚 Education")
-
 st.subheader("MSc Water Science and Engineering (Hydrology and Water Resources)")
 st.write("IHE Delft, Netherlands (2021 – 2023)")
 st.markdown("- **Thesis:** Characterizing Natural Hazards and their Drivers in Alazani River Basin, Georgia")
@@ -115,19 +101,16 @@ st.markdown("- **Project:** Effect of Waste Dumping on Surface Water Quality in 
 
 # --- Career Summary ---
 st.header("🛠️ Career Summary")
-
 st.subheader("Water Resources Engineer/Hydrologist – Favour Consult Limited (2019 – 2023)")
 st.markdown("""
 - Conducted research, data analysis, stakeholder communication, and report writing.
 - Managed project deadlines and complex schedules effectively.
 """)
-
 st.subheader("Laboratory Instructor – The Peace College (2016 – 2019)")
 st.markdown("""
 - Delivered lab sessions and evaluated student performance.
 - Acted as first contact for technical questions.
 """)
-
 st.subheader("Industrial Training – Oyo State Water Corporation (2015 – 2017)")
 st.markdown("""
 - Supported water treatment analysis, reporting, and departmental operations.
