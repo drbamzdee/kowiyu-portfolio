@@ -15,17 +15,15 @@ st.markdown(
         background-attachment: fixed;
     }
 
-    /* Improve visibility for all links */
     a {
         color: white !important;
         text-decoration: none;
     }
 
     a:hover {
-        color: #FFD700 !important;  /* Golden yellow on hover */
+        color: #FFD700 !important;
     }
 
-    /* Make headings and paragraphs slightly brighter */
     h1, h2, h3, p {
         color: #f0f0f0;
     }
@@ -36,7 +34,7 @@ st.markdown(
 
 # --- Load and Display Image ---
 try:
-    image = Image.open("lab_photo.jpg.jpeg")  # Ensure this file exists
+    image = Image.open("lab_photo.jpg.jpeg")  # Ensure this file exists in the root
     st.image(image, caption="Kowiyu Abidemi Bamidele in the lab", use_column_width=True)
 except FileNotFoundError:
     st.warning("Profile image not found. Please make sure 'lab_photo.jpg.jpeg' is in the working directory.")
@@ -68,7 +66,7 @@ Adaptable, ambitious, and qualified individual seeking to pursue a prolonged and
 """)
 
 # --- Download CV ---
-cv_path = r"C:\Users\IHE-Sale\OneDrive\Documents\southapton\CV_KOWIYU ABIDEMI BAMIDELE.pdf"
+cv_path = "CV_KOWIYU ABIDEMI BAMIDELE.pdf"  # Make sure it's in the app root
 
 if os.path.exists(cv_path):
     with open(cv_path, "rb") as file:
@@ -79,7 +77,7 @@ if os.path.exists(cv_path):
             mime="application/pdf"
         )
 else:
-    st.error("CV file not found. Please check the file path or move the file to your working directory.")
+    st.error("CV file not found. Please ensure the file is in the same folder as this script.")
 
 # --- Project Section ---
 st.header("📊 Project: Drought Pattern Analysis in the Alazani River Basin")
@@ -109,7 +107,7 @@ st.header("📚 Education")
 
 st.subheader("MSc Water Science and Engineering (Hydrology and Water Resources)")
 st.write("IHE Delft, Netherlands (2021 – 2023)")
-st.markdown("- **Thesis:** Characterizing Natural Hazards and their Drivers in the Alazani River Basin, Georgia")
+st.markdown("- **Thesis:** Characterizing Natural Hazards and their Drivers in Alazani River Basin, Georgia")
 
 st.subheader("BSc Water Resources Management and Agro-Meteorology (Hydrology)")
 st.write("Federal University of Agriculture, Nigeria (2014 – 2019)")
